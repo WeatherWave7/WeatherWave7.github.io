@@ -88,7 +88,7 @@ export default function Home() {
               <div className="space-y-2">
                 <Container className="bg-gray-900 border-0">
                   <div className="flex flex-col px-4 bg-gray-500 w-[32rem] h-96 text-slate-50 items-center justify-center pt-2 rounded-2xl">
-                    <h2 className="flex gap-1 text-2xl mb-6 items-end text-slate-200">
+                    <h2 className="flex gap-1 mb-6 text-2xl items-end text-slate-200">
                       <p>{format(parseISO(firstData?.dt_txt ?? ""), "EEEE")}</p>
                       <p className="text-lg">
                         (
@@ -102,7 +102,9 @@ export default function Home() {
                     <span className="text-9xl animate-bounce-slow">
                       {convertKelvinToCelsius(firstData?.main.temp ?? 296.37)}°
                     </span>
-                    <div className="shadow-slate-300 w-80 text-center">-</div>
+                    <div className="shadow-[0_35px_60px_-15px] shadow-slate-300 w-80 text-center">
+                      -
+                    </div>
                     <p className="text-xl pr-3 pt-6">
                       <span> Feels like</span>
                       <span>
