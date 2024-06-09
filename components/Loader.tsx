@@ -90,13 +90,16 @@ class Loader extends React.Component<{ size?: number; style?: React.CSSPropertie
 
   positionForTile(radioCommand: string) {
     for (const position in this.state.positions) {
-      const tile = this.state.positions[position];
-      if (tile === radioCommand) {
-        return position;
+      if (Object.prototype.hasOwnProperty.call(this.state.positions, position)) {
+        const tile = this.state.positions[position];
+        if (tile === radioCommand) {
+          return position;
+        }
       }
     }
     return ""; // or throw an error, depending on your logic
   }
+
 
 
   setNextState = () => {
