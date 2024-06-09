@@ -32,4 +32,3 @@ export interface WeatherDetail {
     };
     dt_txt: string;
   }
-  
