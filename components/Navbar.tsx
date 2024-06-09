@@ -87,7 +87,7 @@ export default function Navbar({ location }: Props) {
   }
   return (
     <>
-      <nav className="shadow-sm  sticky top-0 left-0 z-50 bg-white">
+      <nav className="shadow-sm  sticky top-0 left-0 z-50 bg-gray-900">
         <div className="h-[80px]     w-full    flex   justify-between items-center  max-w-full px-3 mx-auto">
           <p className="flex items-center justify-center gap-2  ">
             <h2 className="text-gray-500 text-3xl">WeatherWave</h2>
@@ -115,7 +115,7 @@ export default function Navbar({ location }: Props) {
                   showSuggestions,
                   suggestions,
                   handleSuggestionClick,
-                  error
+                  error,
                 }}
               />
             </div>
@@ -136,7 +136,7 @@ export default function Navbar({ location }: Props) {
               showSuggestions,
               suggestions,
               handleSuggestionClick,
-              error
+              error,
             }}
           />
         </div>
@@ -149,7 +149,7 @@ function SuggetionBox({
   showSuggestions,
   suggestions,
   handleSuggestionClick,
-  error
+  error,
 }: {
   showSuggestions: boolean;
   suggestions: string[];

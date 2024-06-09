@@ -11,6 +11,8 @@ import { useQuery } from "react-query";
 import { WeatherDetail } from "@/utils/WeatherDetails";
 import { placeAtom } from "@/app/atom";
 import { useAtom } from "jotai";
+import Loader from "@/components/Loader";
+
 interface WeatherData {
   cod: string;
   message: number;
@@ -50,7 +52,7 @@ export default function LandingPage() {
   if (isLoading)
     return (
       <div className="flex items-center min-h-screen justify-center">
-        <p className="animate-bounce">Loading...</p>
+        <Loader size={100} />
       </div>
     );
   if (error)

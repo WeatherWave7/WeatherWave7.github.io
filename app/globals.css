@@ -1,3 +1,50 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.sw-loader__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.sw-loader__wrapper--center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.sw-loader__holder {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.rect {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #FDE047; /* Change as needed */
+  clip-path: inset(0 round 5%);
+}
+
+@font-face {
+  font-family: "Signika Negative", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@keyframes bounceslow {
+  0%,
+  100% {
+    transform: translateY(-10%);
+    animation-timing-function: cubic-bezier(0.8, 0.8, 0.2, 0.4);
+  }
+  50% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0.8, 0.8, 0.2, 0);
+  }
+}
