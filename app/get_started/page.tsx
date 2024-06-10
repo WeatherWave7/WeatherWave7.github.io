@@ -84,10 +84,10 @@ export default function Home() {
           <WeatherSkeleton />
         ) : (
           <>
-            <section className="space-y-4 flex flex-col sm:flex-row justify-around">
-              <div className="space-y-2 w-full sm:w-auto">
+            <section className="space-y-4 flex flex-col md:flex-row justify-around">
+              <div className="space-y-2 w-full md:w-auto">
                 <Container className="bg-gray-900 border-0 w-full">
-                  <div className="flex flex-col px-4 bg-gray-500 w-full sm:w-[32rem] h-96 text-slate-50 items-center justify-center pt-2 rounded-2xl">
+                  <div className="flex flex-col px-4 bg-gray-500 w-full md:w-[32rem] h-96 text-slate-50 items-center justify-center pt-2 rounded-2xl">
                     <h2 className="flex gap-1 text-2xl mb-6 items-end text-slate-200">
                       <p>{format(parseISO(firstData?.dt_txt ?? ""), "EEEE")}</p>
                       <p className="text-lg">
@@ -127,15 +127,15 @@ export default function Home() {
                   </div>
                 </Container>
               </div>
-              <div className="flex flex-col sm:flex-row w-full sm:w-auto">
-                <Container className="w-full sm:w-[45rem] justify-between flex-col px-4 items-center bg-gray-500 h-[35rem] border-0 pb-7 pt-6">
+              <div className="flex flex-col md:flex-row w-full md:w-auto">
+                <Container className="w-full md:w-[45rem] justify-between flex-col px-4 items-center bg-gray-500 h-[35rem] border-0 pb-7 pt-6">
                   <SpecialIcon
                     iconName={getDayOrNightIcon(
                       firstData?.weather[0].icon ?? "",
                       firstData?.dt_txt ?? ""
                     )}
                   />
-                  <Container className="bg-gray-200 px-6 gap-4 justify-between overflow-x-auto border-0 w-full sm:w-auto">
+                  <Container className="bg-gray-200 px-6 gap-4 justify-between overflow-x-auto border-0 w-full md:w-auto">
                     <WeatherDetails
                       visability={metersToKilometers(
                         firstData?.visibility ?? 10000
@@ -160,7 +160,7 @@ export default function Home() {
             </section>
 
             <section className="w-4/5 m-auto mt-10 mb-10">
-              <div className="flex gap-10 sm:gap-16 overflow-x-auto w-full justify-between pr-3 bg-gray-300 rounded-lg p-4">
+              <div className="flex gap-10 md:gap-16 overflow-x-auto w-full justify-between pr-3 bg-gray-300 rounded-lg p-4">
                 {data?.list.map((d, i) => (
                   <div
                     key={i}
@@ -179,7 +179,7 @@ export default function Home() {
             </section>
 
             <p className="text-2xl text-slate-50">Forecast (7 days)</p>
-            <section className="flex h-full gap-4 justify-start pl-2 pr-2 overflow-x-auto sm:overflow-visible">
+            <section className="flex md:flex-row flex-col h-full gap-4 justify-start pl-2 pr-2 overflow-x-auto">
               {firstDataForEachDate.map((d, i) => (
                 <div className="min-w-[16rem] flex-shrink-0" key={i}>
                   <ForecastWeatherDetail

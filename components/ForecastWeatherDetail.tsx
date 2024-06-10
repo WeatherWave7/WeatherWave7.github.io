@@ -31,10 +31,10 @@ export default function ForecastWeatherDetail(
     description,
   } = props;
   return (
-    <Container className="gap-4 flex flex-col">
+    <Container className="gap-4 flex flex-col pr-2 pl-2">
       {/* left */}
-      <section className=" flex flex-col gap-4 items-center px-4  ">
-        <div className=" flex flex-col gap-1 items-center">
+      <section className=" md:flex md:flex-col gap-4 items-center px-4  ">
+        <div className=" flex md:flex-col gap-1 items-center">
           <WeatherIcon iconName={weatehrIcon} />
           <p>{date}</p>
           <p className="text-sm">{day} </p>
@@ -51,7 +51,7 @@ export default function ForecastWeatherDetail(
         </div>
       </section>
       {/* right */}
-      <section className=" overflow-x-auto flex flex-col justify-between gap-10 px-4  w-full pr-10">
+      <section className=" overflow-x-auto flex md:flex-col justify-between gap-10 px-4 w-full p-4 bg-slate-200 rounded-lg shadow-inner shadow-slate-300 md:shadow-none md:bg-transparent">
         <WeatherDetails {...props} />
       </section>
     </Container>
