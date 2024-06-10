@@ -14,14 +14,14 @@ export default function Team() {
         </div>
         <div className="grid gap-10 mx-auto lg:max-w-screen sm:grid-cols-2 lg:grid-cols-2 items-center justify-center">
           <div className="flex flex-col items-center">
-            <img className="object-cover w-40 h-40 mb-4 rounded-full shadow" src="https://up6.cc/2024/06/171772448777531.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Mohamed Ali"></img>
+            <img className="object-cover w-40 h-40 mb-4 rounded-full shadow" src="https://up6.cc/2024/06/171772448777531.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Person"></img>
             <div className="flex flex-col justify-center items-center">
               <p className="text-lg font-bold">Mohamed Ali</p>
               <p className="text-sm text-gray-800">Full-stack Developer</p>
             </div>
           </div>
           <div className="flex flex-col items-center">
-            <img className="object-cover w-40 h-40 mb-4 rounded-full shadow" src="https://up6.cc/2024/06/171772528380021.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Mohamed Suliman"></img>
+            <img className="object-cover w-40 h-40 mb-4 rounded-full shadow" src="https://up6.cc/2024/06/171772528380021.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Person"></img>
             <div className="flex flex-col items-center">
               <p className="text-lg font-bold">Mohamed Suliman</p>
               <p className="text-sm text-gray-800">Full-stack Developer</p>
