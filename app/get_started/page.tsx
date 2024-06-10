@@ -84,16 +84,21 @@ export default function Home() {
           <WeatherSkeleton />
         ) : (
           <>
-            <section className="space-y-4 flex flex-row justify-around">
-              <div className="space-y-2">
-                <Container className="bg-gray-900 border-0">
-                  <div className="flex flex-col px-4 bg-gray-500 w-[32rem] h-96 text-slate-50 items-center justify-center pt-2 rounded-2xl">
-                  <h2 className="flex gap-1 text-2xl mb-6 items-end text-slate-200">
-              <p>{format(parseISO(firstData?.dt_txt ?? ""), "EEEE")}</p>
-              <p className="text-lg">
-                ({format(parseISO(firstData?.dt_txt ?? ""), "dd.MM.yyyy")})
-              </p>
-            </h2>
+            <section className="space-y-4 flex flex-col sm:flex-row justify-around">
+              <div className="space-y-2 w-full sm:w-auto">
+                <Container className="bg-gray-900 border-0 w-full">
+                  <div className="flex flex-col px-4 bg-gray-500 w-full sm:w-[32rem] h-96 text-slate-50 items-center justify-center pt-2 rounded-2xl">
+                    <h2 className="flex gap-1 text-2xl mb-6 items-end text-slate-200">
+                      <p>{format(parseISO(firstData?.dt_txt ?? ""), "EEEE")}</p>
+                      <p className="text-lg">
+                        (
+                        {format(
+                          parseISO(firstData?.dt_txt ?? ""),
+                          "dd.MM.yyyy"
+                        )}
+                        )
+                      </p>
+                    </h2>
                     <span className="text-9xl animate-bounce-slow">
                       {convertKelvinToCelsius(firstData?.main.temp ?? 296.37)}°
                     </span>
@@ -106,7 +111,7 @@ export default function Home() {
                         °
                       </span>
                     </p>
-                    <p className="text-xs space-x-2">
+                    <p className="text-sm space-x-2">
                       <span>
                         {convertKelvinToCelsius(firstData?.main.temp_min ?? 0)}
                         °↓
@@ -116,23 +121,21 @@ export default function Home() {
                         °↑
                       </span>
                     </p>
-                    <p className="capitalize text-center pr-4 pt-6">
+                    <p className="capitalize text-center pr-4 pt-2">
                       {firstData?.weather[0].description}
                     </p>
                   </div>
-                  {/*
-                   */}
                 </Container>
               </div>
-              <div className="flex-row ">
-                <Container className="w-[45rem] justify-between flex-col px-4 items-center bg-gray-500 h-[35rem] border-0 pb-7 pt-6">
+              <div className="flex flex-col sm:flex-row w-full sm:w-auto">
+                <Container className="w-full sm:w-[45rem] justify-between flex-col px-4 items-center bg-gray-500 h-[35rem] border-0 pb-7 pt-6">
                   <SpecialIcon
                     iconName={getDayOrNightIcon(
                       firstData?.weather[0].icon ?? "",
                       firstData?.dt_txt ?? ""
                     )}
                   />
-                  <Container className="bg-gray-200 px-6 gap-4 justify-between overflow-x-auto border-0">
+                  <Container className="bg-gray-200 px-6 gap-4 justify-between overflow-x-auto border-0 w-full sm:w-auto">
                     <WeatherDetails
                       visability={metersToKilometers(
                         firstData?.visibility ?? 10000
@@ -175,32 +178,33 @@ export default function Home() {
               </div>
             </section>
 
-            <p className="text-2xl text-slate-50 ml-2">Forecast (7 days)</p>
-            <section className="flex h-full gap-4 justify-around pl-2 pr-2">
+            <p className="text-2xl text-slate-50">Forecast (7 days)</p>
+            <section className="flex h-full gap-4 justify-start pl-2 pr-2 overflow-x-auto sm:overflow-visible">
               {firstDataForEachDate.map((d, i) => (
-                <ForecastWeatherDetail
-                  key={i}
-                  description={d?.weather[0].description ?? ""}
-                  weatehrIcon={d?.weather[0].icon ?? "01d"}
-                  date={d ? format(parseISO(d.dt_txt), "dd.MM") : ""}
-                  day={d ? format(parseISO(d.dt_txt), "EEEE") : ""}
-                  feels_like={d?.main.feels_like ?? 0}
-                  temp={d?.main.temp ?? 0}
-                  temp_max={d?.main.temp_max ?? 0}
-                  temp_min={d?.main.temp_min ?? 0}
-                  airPressure={`${d?.main.pressure} hPa`}
-                  humidity={`${d?.main.humidity}%`}
-                  sunrise={format(
-                    fromUnixTime(data?.city.sunrise ?? 1702517657),
-                    "H:mm"
-                  )}
-                  sunset={format(
-                    fromUnixTime(data?.city.sunset ?? 1702517657),
-                    "H:mm"
-                  )}
-                  visability={`${metersToKilometers(d?.visibility ?? 10000)}`}
-                  windSpeed={`${convertWindSpeed(d?.wind.speed ?? 1.64)}`}
-                />
+                <div className="min-w-[16rem] flex-shrink-0" key={i}>
+                  <ForecastWeatherDetail
+                    description={d?.weather[0].description ?? ""}
+                    weatehrIcon={d?.weather[0].icon ?? "01d"}
+                    date={d ? format(parseISO(d.dt_txt), "dd.MM") : ""}
+                    day={d ? format(parseISO(d.dt_txt), "EEEE") : ""}
+                    feels_like={d?.main.feels_like ?? 0}
+                    temp={d?.main.temp ?? 0}
+                    temp_max={d?.main.temp_max ?? 0}
+                    temp_min={d?.main.temp_min ?? 0}
+                    airPressure={`${d?.main.pressure} hPa`}
+                    humidity={`${d?.main.humidity}%`}
+                    sunrise={format(
+                      fromUnixTime(data?.city.sunrise ?? 1702517657),
+                      "H:mm"
+                    )}
+                    sunset={format(
+                      fromUnixTime(data?.city.sunset ?? 1702517657),
+                      "H:mm"
+                    )}
+                    visability={`${metersToKilometers(d?.visibility ?? 10000)}`}
+                    windSpeed={`${convertWindSpeed(d?.wind.speed ?? 1.64)}`}
+                  />
+                </div>
               ))}
             </section>
           </>
