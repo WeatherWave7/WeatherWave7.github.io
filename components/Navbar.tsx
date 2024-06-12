@@ -13,7 +13,13 @@ import { useAtom } from "jotai";
 type Props = { location?: string };
 
 const API_KEY = process.env.NEXT_PUBLIC_WEATHER_KEY;
-
+/**
+ * Renders the Navbar component with a search bar and location suggestions.
+ *
+ * @param {Props} props - The component props.
+ * @param {string} props.location - The location to display in the Navbar.
+ * @return {JSX.Element} The rendered Navbar component.
+ */
 export default function Navbar({ location }: Props) {
   const [city, setCity] = useState("");
   const [error, setError] = useState("");
@@ -65,7 +71,10 @@ export default function Navbar({ location }: Props) {
       }, 500);
     }
   }
-
+  /**
+   * Get current location
+   * @returns {Promise<void>}
+   */
   function handleCurrentLocation() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(async (postiion) => {
@@ -93,7 +102,7 @@ export default function Navbar({ location }: Props) {
             <h2 className="text-3xl text-gray-500">WeatherWave</h2>
             <MdWbSunny className="mt-1 text-3xl text-yellow-300" />
           </div>
-          <section className="flex items-center gap-2 w-full md:w-auto">
+          <section className="flex items-center gap-2 w-screen md:w-auto">
             <MdMyLocation
               title="Your Current Location"
               onClick={handleCurrentLocation}

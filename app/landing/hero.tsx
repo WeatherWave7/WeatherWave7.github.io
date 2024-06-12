@@ -2,6 +2,12 @@ import Link from "next/link";
 import React from "react";
 import { FaArrowRight } from "react-icons/fa";
 
+/**
+ * Renders the Hero component.
+ * @returns The rendered Hero component.
+ * @remarks This component is used to display the hero section of our service.
+ */
+
 export default function Hero() {
   return (
     <React.Fragment>

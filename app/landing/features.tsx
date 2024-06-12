@@ -5,6 +5,12 @@ import { FiDroplet } from "react-icons/fi";
 import { MdAir } from "react-icons/md";
 import { ImMeter } from "react-icons/im";
 
+/**
+ * Renders the Features component.
+ * @returns The rendered Features component.
+ * @remarks This component is used to display the key features of our service.
+ */
+
 export default function Features() {
   return (
     <div>

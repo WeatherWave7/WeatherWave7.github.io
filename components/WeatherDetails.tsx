@@ -14,7 +14,12 @@ export interface WeatherDetailProps {
   sunrise: string;
   sunset: string;
 }
-
+/**
+ * Renders the weather details component with the given props.
+ *
+ * @param {WeatherDetailProps} props - The props for the weather details component.
+ * @return {JSX.Element} The rendered weather details component.
+ */
 export default function WeatherDetails(props: WeatherDetailProps) {
   const {
     visability = "25km",

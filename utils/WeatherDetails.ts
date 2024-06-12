@@ -1,3 +1,7 @@
+/**
+ * An interface that defines the structure of the weather details.
+ */
+
 export interface WeatherDetail {
     dt: number;
     main: {

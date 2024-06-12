@@ -2,6 +2,12 @@ import Link from 'next/link';
 import React from 'react';
 import { MdOutlineLocationOn, MdWbSunny } from "react-icons/md";
 
+/**
+ * Renders the Header component.
+ * @returns The rendered Header component.
+ * @remarks This component is used to display the header of our service.
+ */
+
 export default function Header() {
   return (
     <div>

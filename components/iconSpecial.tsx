@@ -6,6 +6,12 @@ import { cn } from "@/utils/cn";
 
 type Props = {};
 
+/**
+ * SpecialIcon component
+ * @param props
+ * @returns
+ */
+
 export default function SpecialIcon(
   props: React.HTMLProps<HTMLDivElement> & { iconName: string }
 ) {

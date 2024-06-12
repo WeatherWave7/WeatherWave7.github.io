@@ -17,6 +17,12 @@ export interface ForecastWeatherDetailProps extends WeatherDetailProps {
   description: string;
 }
 
+/**
+ * Renders the ForecastWeatherDetail component.
+ * @param props
+ * @returns The rendered ForecastWeatherDetail component.
+ */
+
 export default function ForecastWeatherDetail(
   props: ForecastWeatherDetailProps
 ) {

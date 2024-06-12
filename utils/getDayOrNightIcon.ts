@@ -1,4 +1,10 @@
 /** @format */
+/**
+ * Get day or night icon
+ * @param iconName
+ * @param dateTimeString
+ * @returns
+ */
 
 export function getDayOrNightIcon(
 	iconName: string,

@@ -1,5 +1,7 @@
 import { WeatherDetail } from "@/utils/WeatherDetails";
-
+/**
+ * An interface that defines the structure of the weather data.
+ */
 export interface WeatherData {
     cod: string;
     message: number;

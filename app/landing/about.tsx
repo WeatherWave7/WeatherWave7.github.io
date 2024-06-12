@@ -1,6 +1,11 @@
 import link from "next/link";
 import React from "react";
 
+/**
+ *  Renders the About component.
+ * @returns The rendered About component.
+*/
+
 export default function About() {
   return (
     <div>

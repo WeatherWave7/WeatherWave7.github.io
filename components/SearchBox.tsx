@@ -10,7 +10,12 @@ type Props = {
   onChange: React.ChangeEventHandler<HTMLInputElement> | undefined;
   onSubmit: React.FormEventHandler<HTMLFormElement> | undefined;
 };
-
+/**
+ * Renders a search box component.
+ *
+ * @param {Props} props - Object containing className, value, onChange, and onSubmit.
+ * @return {JSX.Element} A form element with an input for search and a search button.
+ */
 export default function SearchBox(props: Props) {
   return (
     <form

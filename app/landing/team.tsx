@@ -1,5 +1,11 @@
 import Link from "next/link";
 import React from "react";
+
+/**
+ * Renders the Team component.
+ * @returns The rendered Team component.
+ */
+
 export default function Team() {
   return (
     <div className="flex justify-center items-center min-h-0 bg-gray-100 py-0">

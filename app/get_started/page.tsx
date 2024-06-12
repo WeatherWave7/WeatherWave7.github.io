@@ -21,10 +21,18 @@ import { WeatherDetail } from "@/utils/WeatherDetails";
 import { WeatherData } from "@/utils/WeatherData";
 import Loader from "@/components/Loader";
 
+/**
+ * Renders the Home component.
+ * 
+ * @returns The rendered Home component.
+ */
+
 export default function Home() {
+  // Atom state for the place and loading status
   const [place, setPlace] = useAtom(placeAtom); // Updated: Added placeAtom
   const [loadingCity] = useAtom(loadingCityAtom);
 
+  // React Query to fetch weather data
   const { isLoading, error, data, refetch } = useQuery<WeatherData>(
     "repoData",
     async () => {
@@ -38,6 +46,7 @@ export default function Home() {
     }
   );
 
+  // Effect to refetch data when place changes
   useEffect(() => {
     if (place) {
       refetch(); // Updated: Ensure refetching data when place changes
@@ -46,6 +55,7 @@ export default function Home() {
 
   const firstData = data?.list[0];
 
+  // Extract unique dates from the data
   const uniqueDates = [
     ...new Set(
       data?.list.map(
@@ -54,6 +64,7 @@ export default function Home() {
     ),
   ];
 
+  // Get the first data entry for each unique date
   const firstDataForEachDate = uniqueDates.map((date) => {
     return data?.list.find((entry) => {
       const entryDate = new Date(entry.dt * 1000).toISOString().split("T")[0];
@@ -68,6 +79,7 @@ export default function Home() {
         <Loader size={100} />
       </div>
     );
+
   if (error)
     return (
       <div className="flex items-center min-h-screen justify-center">
@@ -102,7 +114,7 @@ export default function Home() {
                     <span className="text-9xl animate-bounce-slow">
                       {convertKelvinToCelsius(firstData?.main.temp ?? 296.37)}°
                     </span>
-                    <p className="text-xl pr-3 pt-6">
+                    <p className="text-xl pt-6">
                       <span> Feels like</span>
                       <span>
                         {convertKelvinToCelsius(
@@ -121,7 +133,7 @@ export default function Home() {
                         °↑
                       </span>
                     </p>
-                    <p className="capitalize text-center pr-4 pt-2">
+                    <p className="capitalize text-center pt-2">
                       {firstData?.weather[0].description}
                     </p>
                   </div>
@@ -159,7 +171,7 @@ export default function Home() {
               </div>
             </section>
 
-            <section className="w-4/5 m-auto mt-10 mb-10">
+            <section className="w-4/5 m-auto">
               <div className="flex gap-10 md:gap-16 overflow-x-auto w-full justify-between pr-3 bg-gray-300 rounded-lg p-4">
                 {data?.list.map((d, i) => (
                   <div
@@ -178,8 +190,22 @@ export default function Home() {
               </div>
             </section>
 
-            <p className="text-2xl text-slate-50">Forecast (7 days)</p>
-            <section className="flex md:flex-row flex-col h-full gap-4 justify-start pl-2 pr-2 overflow-x-auto">
+            <p
+              className="text-2xl text-slate-50"
+              style={{
+                position: "relative",
+                left: "162px",
+                top: "9px",
+                transition: "none 0s ease 0s",
+                cursor: "move"
+              }}
+              data-selected="true"
+              data-label-id="0"
+            >
+              Forecast (6 days)
+            </p>
+
+            <section className="flex md:flex-row flex-col h-full gap-4 justify-center pl-2 pr-2 overflow-x-auto">
               {firstDataForEachDate.map((d, i) => (
                 <div className="min-w-[16rem] flex-shrink-0" key={i}>
                   <ForecastWeatherDetail
@@ -214,6 +240,10 @@ export default function Home() {
   );
 }
 
+/**
+ * Renders a skeleton component for weather information.
+ * This component is used to display a loading state while fetching weather data.
+ */
 function WeatherSkeleton() {
   return (
     <section className="space-y-8">

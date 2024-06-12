@@ -2,6 +2,11 @@
 
 import { cn } from "@/utils/cn";
 import React from "react";
+/**
+ * Container component
+ * @param props
+ * @returns
+ */
 
 export default function Container(props: React.HTMLProps<HTMLDivElement>) {
   return (
